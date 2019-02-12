@@ -21,7 +21,7 @@ const BookList = ({ books, onAddedToCart }) => {
                         <li key={book.id}>
                             <BookListItem
                                 book={book}
-                                onAddedToCart={() => onAddedToCart(book.id)}/>
+                                onAddedToCart={() => onAddedToCart(book.id)} />
                         </li>
                     );
                 })
@@ -47,11 +47,11 @@ class BookListContainer extends Component {
             return <ErrorIndicator />;
         }
 
-        return <BookList books={books} onAddedToCart={onAddedToCart}/>;
+        return <BookList books={books} onAddedToCart={onAddedToCart} />;
     }
 }
 
-const mapStateToProps = ({ books, loading, error }) => {
+const mapStateToProps = ({ bookList: { books, loading, error } }) => {
     return { books, loading, error };
 };
 
